@@ -685,7 +685,7 @@ with tab_ml:
             xs_ = list(f_.Year) + list(f_.Year[::-1])
             ys_ = list(f_.Upper) + list(f_.Lower[::-1])
             rgb = tuple(int(col[i:i + 2], 16) for i in (1, 3, 5))
-            fig.add_trace(go.Scatter(x=xs_, y=ys_, fill="toself", fillcolor=f"rgba({rgb[0]},{rgb[1]},{rgb[2]},0.18)", line=dict(width=0), showlegend=False, hoverinfo="skip"))
+            fig.add_trace(go.Scatter(x=xs_, y=ys_, mode="lines", fill="toself", fillcolor=f"rgba({rgb[0]},{rgb[1]},{rgb[2]},0.18)", line=dict(width=0), showlegend=False, hoverinfo="skip"))
             fig.add_trace(go.Scatter(x=[h_.Year.iloc[-1]] + list(f_.Year), y=[h_[fm].iloc[-1]] + list(f_.Value), mode="lines", line=dict(color=col, dash="dash", width=3), showlegend=False,
                                      name=f"{c_} forecast"))
         fig.add_vline(x=int(cy.Year.max()) + 0.5, line_dash="dot", line_color="#667", annotation_text="forecast →")
